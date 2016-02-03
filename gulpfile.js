@@ -6,7 +6,6 @@ node development server.
 It's been commented extensively because gulpfiles can get weird
 and hard to follow.
 */
-
 var gulp = require('gulp');
 var install = require('gulp-install');
 var jshint = require('gulp-jshint');
@@ -27,10 +26,9 @@ legacyWatch is enabled within nodemon, can block the event loop.
 */
 var paths = {
   'package': './package.json',
-  'src': ['models/**/*.js', 'routes/**/*.js', 'app.js', 'package.json'],
-  'static': ['./templates/**/*.jade', './client/js', './public/images/**/*',
-    './public/fonts/**/*', './public/js/**/*'
-  ],
+  'src': ['server/models/**/*.js', 'server/routes/**/*.js', 'server.js', 'package.json'],
+  'static': ['./server/templates/**/*.jade'],
+  'client': './client/**/*.js',
   'style': {
     sass: './public/styles/**/*.scss',
     compiled: './public/dist/site.min.css',
@@ -136,7 +134,7 @@ gulp.task('nodemon', ['install', 'lint'], function() {
   // start the livereload server.
   livereload.listen();
   nodemon({
-      script: 'server/app.js',
+      script: 'server.js',
       watch: paths.src,
       legacyWatch: true,
       ext: 'js json',

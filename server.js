@@ -8,20 +8,21 @@ var keystone = require('keystone');
 
 keystone.init({
   'brand': 'Abstract Media',
-  'favicon': 'public/favicon.ico',
+  // 'favicon': 'public/favicon.ico',
+  'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI ||
+    'mongodb://localhost/styers-angular-code-assessment',
 	'name': 'styers-angular-code-assessment',
-
-
+  'port': process.env.PORT || 3000,
 	'sass': 'public',
 	'static': 'public',
-
 	'views': 'server/templates/views',
 	'view engine': 'jade',
-	'auto update': true,
+
+	'auto update': false,
 	'session': true,
+
 	'auth': true,
 	'user model': 'User',
-	'port': process.env.PORT || 3000
 });
 
 keystone.import('server/models');
@@ -36,7 +37,7 @@ keystone.set('locals', {
 keystone.set('routes', require('./server/routes'));
 
 keystone.start({
-  // once the application mounts, start
+  // once the application mounts, start the livereload server
 	onMount: function() {
 		if (process.env.NODE_ENV === 'development') {
 			keystone.app.use(require('connect-livereload')());
