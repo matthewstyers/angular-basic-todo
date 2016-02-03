@@ -1,19 +1,24 @@
 web:
-  image: node:4.2-wheezy
-  net: "host"
+  build: .
+  ports:
+    - "80:5000"
+    - "3000:3000"
+    - "3001:3001"
+    - "35729:35729"
+    - "27017:27017"
   volumes:
-   - .:/opt/app/src
+    - .:/opt/app/src
   env_file:
     - ./.env
   container_name: todo
-links:
-- mongo
-- redis
-mongo:
- image: mongo:3.2.1
-  ports:
-    - "27017:27017"
-  container_name: mongo
+  # links:
+  #   - mongo
+    # - redis
+# mongo:
+#   image: mongo:3.2.1
+#   ports:
+#     - "27017:27017"
+#   container_name: mongo
 # redis:
 #   image: redis:3.0.6-alpine
 #   ports:

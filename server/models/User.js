@@ -14,10 +14,12 @@ User.add({
 	email: {
 		type: Types.Email,
 		required: true,
+		initial: true,
 		index: true
 	},
 	password: {
 		type: Types.Password,
+		initial: true,
 		required: true
 	},
 	isAdmin: {
