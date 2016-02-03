@@ -29,6 +29,7 @@
 - [ ] models
 - [ ] api
 - [ ] MVP spec check (meets baseline user stories)
+- [ ] iterate on the design a bit
 - [ ] implement unit testing
 - [ ] maybe drop in a vanity feature, if I'm feelin' nasty
 
