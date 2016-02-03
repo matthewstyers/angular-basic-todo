@@ -13,7 +13,6 @@ keystone.init({
     'mongodb://localhost/styers-angular-code-assessment',
 	'name': 'styers-angular-code-assessment',
   'port': process.env.PORT || 3000,
-	'sass': 'public',
 	'static': 'public',
 	'views': 'server/templates/views',
 	'view engine': 'jade',
