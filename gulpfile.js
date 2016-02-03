@@ -136,7 +136,7 @@ gulp.task('nodemon', ['install', 'lint'], function() {
   // start the livereload server.
   livereload.listen();
   nodemon({
-      script: 'app.js',
+      script: 'server/app.js',
       watch: paths.src,
       legacyWatch: true,
       ext: 'js json',
