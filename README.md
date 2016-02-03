@@ -17,9 +17,9 @@
 ## Progress
 - [x] initial planning/documentation
 - [x] environment/container config
-- [ ] container up and running
-- [ ] server 'up and running'
-- [ ] server config
+- [x] container up and running
+- [x] server 'up and running'
+- [x] server config
 - [ ] client 'up and running'
 - [ ] build build (as in, write the build script)
 - [ ] sketch out design
@@ -67,12 +67,12 @@ None of these are requirements, but will each additional item achieved will incr
 
 - [ ] Write Unit Tests first in true TDD spirit
 - [x] Write the README in markdown
-- [ ] Use Sass to spice up the styles
+- [x] Use Sass to spice up the styles
 - [ ] Use Jade to speed up HTML development
 - [ ] Push the project github to turn it in
 - [ ] Finish project early
 
 ## Suggestions
-- [ ] Create a gulpfile.js to aid in development
-- [ ] Use bower and npm to manage dependencies
+- [x] Create a gulpfile.js to aid in development
+- [x] Use bower and npm to manage dependencies
 - [ ] Adhere to John Papa's Angular style guide to keep application organized: [https://github.com/johnpapa/angular-styleguide](https://github.com/johnpapa/angular-styleguide)
