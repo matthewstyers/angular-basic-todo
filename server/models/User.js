@@ -2,7 +2,7 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var User = new keystone.List('User', {
-
+	// add some config here eventually
 });
 
 User.add({
@@ -13,19 +13,15 @@ User.add({
 	},
 	email: {
 		type: Types.Email,
-		initial: true,
 		required: true,
 		index: true
 	},
 	password: {
 		type: Types.Password,
-		initial: true,
 		required: true
-	}
-}, 'Permissions', {
+	},
 	isAdmin: {
 		type: Boolean,
-		label: 'Can access Keystone',
 		index: true
 	}
 });
