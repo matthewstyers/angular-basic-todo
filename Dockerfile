@@ -5,12 +5,12 @@ FROM node:4.2.4-wheezy
 
 # Creates a cache layer for node_modules, so npm install only runs if package.json has changed.
 ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
+RUN cd /tmp && npm install --only=dev
 RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app
 
 
 WORKDIR /opt/app
-RUN npm install -g nodemon@1.8.1 gulp@3.9.0 unicode@0.6.1
+RUN npm install -g nodemon@1.8.1 gulp@3.9.0 bower@1.7.7
 
 RUN mkdir /opt/app/src
 ADD . /opt/app/src

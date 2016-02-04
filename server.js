@@ -14,7 +14,7 @@ keystone.init({
 	'name': 'styers-angular-code-assessment',
   'port': process.env.PORT || 3000,
 	'static': 'public',
-	'views': 'server/templates/views',
+	'views': 'client/templates/views',
 	'view engine': 'jade',
 
 	'auto update': false,
@@ -36,10 +36,29 @@ keystone.set('locals', {
 keystone.set('routes', require('./server/routes'));
 
 keystone.start({
+  // onHttpServerCreated: function() {
+  //   var socketio = require('socket.io');
+  //   keystone.set('io', socketio.listen(keystone.httpServer));
+  // },
   // once the application mounts, start the livereload server
 	onMount: function() {
 		if (process.env.NODE_ENV === 'development') {
 			keystone.app.use(require('connect-livereload')());
 		}
-	}
+	// },
+  // onStart: function() {
+	// 	var io = keystone.get('io');
+	// 	var session = keystone.get('express session');
+	// 	// Share session between express and socketio
+	// 	io.use(function(socket, next) {
+	// 		session(socket.handshake, {}, next);
+	// 	});
+	// 	io.on('connection', function(socket) {
+	// 		console.log('user connected');
+	// 		socket.on('chat message', function(msg) {
+	// 			console.log('message: ' + msg);
+	// 			io.emit('chat message', msg);
+	// 		});
+	// 	});
+  }
 });

@@ -16,6 +16,7 @@ var nodemon = require('gulp-nodemon');
 var path = require('path');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
+var webpack = require('gulp-webpack');
 
 // single reference point for all relevant paths.
 
@@ -27,8 +28,11 @@ legacyWatch is enabled within nodemon, can block the event loop.
 var paths = {
   'package': './package.json',
   'src': ['server/models/**/*.js', 'server/routes/**/*.js', 'server.js', 'package.json'],
-  'static': ['./server/templates/**/*.jade'],
-  'client': './client/**/*.js',
+  'static': ['./client/templates/**/*.jade'],
+  'client': {
+    src: './client/**/*.js',
+    entry: './client/app.js'
+  },
   'style': {
     sass: './public/styles/**/*.scss',
     compiled: './public/dist/site.min.css',
@@ -48,6 +52,7 @@ var subProcess = {
     // watch static file dirs (templates, images, etc.) and do a simple page
     //reload on change
     gulp.watch(paths.static, ['reload']);
+    gulp.watch(paths.client.src, ['build']);
   }
 };
 
@@ -118,6 +123,17 @@ gulp.task('reload', function(cb) {
   cb();
 });
 
+gulp.task('build', ['sass'], function (cb) {
+  gulp.src(paths.client.entry)
+    .pipe(webpack(require('./webpack.config')))
+    .pipe(gulp.dest('public/dist'))
+    .on('end', function(err) {
+      if (err) cb(err);
+      livereload.reload();
+      cb();
+    });
+});
+
 // core task. monitors/restarts app automatically, and handles crashes without
 // killing the container.
 /*
@@ -130,7 +146,7 @@ messages.
 to solve this problem, we simply set legacyWatch to true, thereby instructing
 nodemon to poll necessary files and identify changes.
 */
-gulp.task('nodemon', ['install', 'lint'], function() {
+gulp.task('nodemon', ['install', 'build'], function() {
   // start the livereload server.
   livereload.listen();
   nodemon({

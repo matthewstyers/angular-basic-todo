@@ -1,0 +1,20 @@
+extends ../layouts/base
+
+block content
+  .container-fluid
+    div(ng-controller='TodoController as todo')
+      .row 
+        .col-lg-3#list-list
+          h1.display-1.text-xs-center CHORIN'
+          h3.text-muted.text-xs-center A Todo App by Emil Cioran
+          //- h1.display-1 
+          //-   | {{todo.todos.length}}
+          form.form-inline#new-list
+            .form-group
+              input.form-control(type='text', ng-model='todo.newTodo' placeholder='New List')
+              a.btn.btn-info-outline(href='#' ng-click='todo.addTodo()')
+                | #[i.fa.fa-plus(style='')]
+          .card
+            ul.list-group.list-group-flush
+              li.list-group-item(ng-repeat="list in todo.todos")
+                | {{list.name}}
