@@ -20,14 +20,14 @@
 - [x] container up and running
 - [x] server 'up and running'
 - [x] server config
-- [ ] client 'up and running'
-- [ ] build build (as in, write the build script)
+- [x] client 'up and running'
+- [x] build build (as in, write the build script)
 - [ ] sketch out design
-- [ ] static routes (server)
-- [ ] static functionality
-- [ ] figure out everything that's changed in angular since the last time I used it.
-- [ ] models
-- [ ] api
+- [x] static routes (server)
+- [x] static functionality
+- [x] figure out everything that's changed in angular since the last time I used it.
+- [x] models
+- [x] api
 - [ ] MVP spec check (meets baseline user stories)
 - [ ] iterate on the design a bit
 - [ ] implement unit testing
@@ -52,11 +52,11 @@ Implement a simple todo list application using the parts of the MEAN stack. Expl
 ## Requirements
 - [ ]  Turn in a creative mockup concept of the todo app (implementing the conceptual style is not required)
 - [x]  Managed history with Git
-- [ ]  Functionality written in AngularJS
+- [x]  Functionality written in AngularJS
 - [x] Locally served with Node.JS
-- [ ] Web/Browser based
-- [ ] Object Oriented
-- [ ] Store data using MongoDb
+- [x] Web/Browser based
+- [x] Object Oriented
+- [x] Store data using MongoDb
 - [ ] Lays out well at small and large viewport sizes (Mobile responsive)
 
 ## Bonus points
@@ -68,7 +68,7 @@ None of these are requirements, but will each additional item achieved will incr
 - [ ] Write Unit Tests first in true TDD spirit
 - [x] Write the README in markdown
 - [x] Use Sass to spice up the styles
-- [ ] Use Jade to speed up HTML development
+- [x] Use Jade to speed up HTML development
 - [ ] Push the project github to turn it in
 - [ ] Finish project early
 
