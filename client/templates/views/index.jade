@@ -3,18 +3,57 @@ extends ../layouts/base
 block content
   .container-fluid
     div(ng-controller='TodoController as todo')
-      .row 
-        .col-lg-3#list-list
-          h1.display-1.text-xs-center CHORIN'
-          h3.text-muted.text-xs-center A Todo App by Emil Cioran
-          //- h1.display-1 
-          //-   | {{todo.todos.length}}
-          form.form-inline#new-list
-            .form-group
-              input.form-control(type='text', ng-model='todo.newTodo' placeholder='New List')
-              a.btn.btn-info-outline(href='#' ng-click='todo.addTodo()')
-                | #[i.fa.fa-plus(style='')]
-          .card
+      .row#top-nav
+        .col-lg-12#nav-content
+          .row 
+            .col-lg-1
+              h2.text-muted.text-xs-center chorin'
+            .col-lg-11
+              form#new-item
+                .row
+                  .col-lg-4.col-md-12
+                    .form-group
+                      input.form-control(type='text', ng-model='todo.newItem' placeholder="i shan't forget to...")
+                  .col-lg-3.col-md-4.col-sm-12
+                    .form-group
+                      select.c-select.form-control(ng-options='priority.value as priority.label for priority in todo.priorityArr' ng-model='todo.priority')
+                        option(value='') Priority
+                  .col-lg-3.col-md-4.col-sm-12
+                    .form-group
+                      select.c-select.form-control(ng-options='list._id as list.name for list in todo.todos' ng-model='todo.list')
+                        option(value='') Add to List
+                  .col-lg-2.col-md-4
+                    .form-group.text-xs-center
+                      a.btn.btn-primary-outline.btn-md(href='#' ng-click='todo.addItem()')
+                        | #[i.fa.fa-plus(style='margin-right:0.5rem')] Create
+      #list-gallery
+        #gallery-options
+          .row: .col-lg-12
+            .btn-group
+              button.btn.btn-primary-outline(type='button') Sort by
+              button.btn.btn-primary-outline.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.sr-only Toggle Dropdown
+              .dropdown-menu
+                a.dropdown-item(href='#') Newest
+                a.dropdown-item(href='#') Oldest
+                a.dropdown-item(href='#') Highest Priority
+            .pull-xs-right
+               form.form-inline#new-list
+                 .form-group
+                   input.form-control(type='text', ng-model='todo.newTodo'  placeholder='New List')
+                 .form-group
+                   a.btn.btn-info-outline(href='#' ng-click='todo.addTodo()')
+                      | #[i.fa.fa-plus(style='margin-right:0.5rem')] New List
+        .card-columns
+          .card(ng-repeat='list in todo.todos')
+            .card-block
+              h2.card-title.text-xs-center#card-title {{list.name}}
+              span.pull-xs-right(style='position:absolute;top:0.5rem;right:0.5rem;color:#ddd')
+                | #[a.i.fa.fa-trash(ng-model='list' ng-click='todo.deleteTodo(list)')]
             ul.list-group.list-group-flush
-              li.list-group-item(ng-repeat="list in todo.todos")
-                | {{list.name}}
+              li.list-group-item(ng-repeat='item in list.items | orderBy: "isDone"' ng-class="{'list-group-item-success': item.isDone == true, 'list-group-item-warning': item.priority == 2 && item.isDone == false, 'list-group-item-danger': item.priority == 3 && item.isDone == false}") 
+                | #[input(type='checkbox' ng-model='item.isDone' ng-click='todo.isDone(item)' style='position: absolute;right: 1rem;top: 38%;')]
+                | {{item.name}}
+                | #[small.text-muted(style='display:table-cell') created #[span(am-time-ago='item.createdAt')]] 
+                    
+                    

@@ -50,7 +50,7 @@ Implement a simple todo list application using the parts of the MEAN stack. Expl
 - [ ] As a user, I can edit the list in multiple browser sessions so my progress isn't lost when I quit the browser
 
 ## Requirements
-- [ ]  Turn in a creative mockup concept of the todo app (implementing the conceptual style is not required)
+- [x]  Turn in a creative mockup concept of the todo app (implementing the conceptual style is not required)
 - [x]  Managed history with Git
 - [x]  Functionality written in AngularJS
 - [x] Locally served with Node.JS

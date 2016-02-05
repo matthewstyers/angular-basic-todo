@@ -1,0 +1,25 @@
+#top-nav {
+  height: auto;
+  padding: 1.75rem 0;
+  vertical-align: middle;
+  background-color: $gray-lighter;
+  #new-item {
+    .form-control {
+      padding: .5rem 1rem;
+    }
+  }
+  #nav-content {
+    vertical-align: middle;
+  }
+  .form-group,
+  h1, h2, h3 .display-4 {
+    margin: .5rem 0;
+    font-weight: 300;
+    vertical-align: middle;
+  }
+  #brand-header {
+    display: inline;
+    padding: 0 .5rem;
+    font-size: 2.5rem;
+  }
+}

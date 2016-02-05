@@ -106,7 +106,7 @@ gulp.task('sass', function(cb) {
     }))
     // crunch it up
     .pipe(minifyCss({
-      compatibility: 'ie9'
+      // compatibility: 'ie10'
     }))
     .pipe(gulp.dest(paths.style.dist))
     // wait til the new file is saved before reloading the page or moving on.
