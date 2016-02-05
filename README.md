@@ -22,14 +22,14 @@
 - [x] server config
 - [x] client 'up and running'
 - [x] build build (as in, write the build script)
-- [ ] sketch out design
+- [x] sketch out design
 - [x] static routes (server)
 - [x] static functionality
 - [x] figure out everything that's changed in angular since the last time I used it.
 - [x] models
 - [x] api
 - [ ] MVP spec check (meets baseline user stories)
-- [ ] iterate on the design a bit
+- [x] iterate on the design a bit
 - [ ] implement unit testing
 - [ ] maybe drop in a vanity feature, if I'm feelin' nasty
 
@@ -42,12 +42,12 @@ Implement a simple todo list application using the parts of the MEAN stack. Expl
 
 ## Use cases
 
-- [ ] As a user, I can add items to a list to remind myself of them later
-- [ ] As a user, I can mark items complete to remove them from the list of remaining todos
-- [ ] As a user, I can see when items were added and completed to keep up with how long a task has been lingering
+- [x] As a user, I can add items to a list to remind myself of them later
+- [x] As a user, I can mark items complete to remove them from the list of remaining todos
+- [x] As a user, I can see when items were added and completed to keep up with how long a task has been lingering
 - [ ] As a user, I can delete and edit existing items to keep my list current
 - [ ] As a user, I can filter between incompleted, all, and completed items so I can know what has already been done
-- [ ] As a user, I can edit the list in multiple browser sessions so my progress isn't lost when I quit the browser
+- [x] As a user, I can edit the list in multiple browser sessions so my progress isn't lost when I quit the browser
 
 ## Requirements
 - [x]  Turn in a creative mockup concept of the todo app (implementing the conceptual style is not required)
@@ -57,7 +57,7 @@ Implement a simple todo list application using the parts of the MEAN stack. Expl
 - [x] Web/Browser based
 - [x] Object Oriented
 - [x] Store data using MongoDb
-- [ ] Lays out well at small and large viewport sizes (Mobile responsive)
+- [x] Lays out well at small and large viewport sizes (Mobile responsive)
 
 ## Bonus points
 
@@ -69,7 +69,7 @@ None of these are requirements, but will each additional item achieved will incr
 - [x] Write the README in markdown
 - [x] Use Sass to spice up the styles
 - [x] Use Jade to speed up HTML development
-- [ ] Push the project github to turn it in
+- [x] Push the project github to turn it in
 - [ ] Finish project early
 
 ## Suggestions
